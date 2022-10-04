@@ -1,6 +1,13 @@
 const CourseList = ({ courses }) => {
     let courseArr = Object.entries(courses);
     return (
+        // <div>
+        //     {courseArr.map((course) => {
+        //         return <div>
+        //             {course[1].term}
+        //         </div>
+        //     })}
+        // </div>
         <div className="row">
         {courseArr.map((course, idx) => {
             return (
