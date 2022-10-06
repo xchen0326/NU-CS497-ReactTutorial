@@ -1,13 +1,9 @@
-const CourseList = ({ courses }) => {
-    let courseArr = Object.entries(courses);
+const CourseList = ({
+    courses,
+    term,
+}) => {
+    let courseArr = Object.entries(courses).filter((course) => course[1].term === term);
     return (
-        // <div>
-        //     {courseArr.map((course) => {
-        //         return <div>
-        //             {course[1].term}
-        //         </div>
-        //     })}
-        // </div>
         <div className="row">
         {courseArr.map((course, idx) => {
             return (
