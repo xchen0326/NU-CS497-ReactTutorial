@@ -8,6 +8,7 @@ function App() {
   const url = "https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php";
   const [schedule, setSchedule] = useState();
   const [term, setTerm] = useState("Fall");
+  const [selectedCourses, setSelectedCourses] = useState([]);
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
       <Banner title={schedule.title} />
       <TermSelector term={term} setTerm={setTerm} />
-      <CourseList courses={schedule.courses} term={term} />
+      <CourseList courses={schedule.courses} term={term} selectedCourses={selectedCourses} setSelectedCourses={setSelectedCourses} />
     </div>
   );
 }

@@ -1,14 +1,24 @@
 const CourseList = ({
     courses,
     term,
+    selectedCourses,
+    setSelectedCourses,
 }) => {
     let courseArr = Object.entries(courses).filter((course) => course[1].term === term);
+    const handleClickCard = (e) => {
+        if (e.target.parentNode.classList.contains("selected")) {
+            e.target.parentNode.classList.remove("selected");
+        } else {
+            e.target.parentNode.classList.add("selected");
+        }
+        
+    }
     return (
         <div className="row">
         {courseArr.map((course, idx) => {
             return (
                 <div className="col-sm-3">
-                <div className="card h-100" key={idx}>
+                <div className="card h-100" key={idx} onClick={handleClickCard}>
                     <div className="card-body">
                     <h2 className="class-title">{ course[1].term } CS { course[1].number }</h2>
                     <p className="card-text">{ course[1].title }</p>
