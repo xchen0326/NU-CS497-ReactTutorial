@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Banner from './components/Banner';
+import CourseForm from './components/CourseForm';
 import CourseList from './components/CourseList';
 import CourseModal from './components/CourseModal';
 import TermSelector from './components/TermSelector';
@@ -29,6 +30,7 @@ function App() {
       <TermSelector term={term} setTerm={setTerm} />
       <CourseList courses={schedule.courses} term={term} selectedCourses={selectedCourses} setSelectedCourses={setSelectedCourses} />
       <CourseModal selectedCourses={selectedCourses} />
+      <CourseForm />
     </div>
   );
 }
