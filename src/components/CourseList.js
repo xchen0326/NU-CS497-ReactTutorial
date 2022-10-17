@@ -3,6 +3,7 @@ const CourseList = ({
     term,
     selectedCourses,
     setSelectedCourses,
+    auth,
 }) => {
     let courseArr = Object.entries(courses).filter((course) => course[1].term === term);
     const handleClickCard = (e, course) => {
@@ -16,7 +17,7 @@ const CourseList = ({
     }
     return (
         <div className="row">
-        {courseArr.map((course, idx) => {
+        {auth!=='' ? courseArr.map((course, idx) => {
             return (
                 <div className="col-sm-3">
                     <div className="card h-100" key={idx} onClick={(e) => handleClickCard(e, course)}>
@@ -29,6 +30,7 @@ const CourseList = ({
                 </div>
                 )
             })
+            : "Please login before accessing courses."
         }
         </div>
     )
