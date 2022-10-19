@@ -8,6 +8,7 @@ import TermSelector from './components/TermSelector';
 import BottomMenu from './components/BottomMenu.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginLogout from './components/LoginLogout';
+import { useDbData } from './database/firebase'
 
 function App() {
   const url = "https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php";
@@ -15,6 +16,7 @@ function App() {
   const [schedule, setSchedule] = useState();
   const [term, setTerm] = useState("Fall");
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const [data, error] = useDbData('/');
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
