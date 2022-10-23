@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const CourseModal = ({selectedCourses}) => {
+const CourseModal = ({selected}) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true);
@@ -22,14 +22,14 @@ const CourseModal = ({selectedCourses}) => {
                 </Modal.Header>
                 <Modal.Body>
                 <div className="row">
-                {selectedCourses.map((course, idx) => {
+                {selected.map((course, idx) => {
                     return (
                         <div className="col-sm-3">
                             <div className="card h-100" key={idx}>
                                 <div className="card-body">
-                                    <h2 className="class-title">{ course[1].term } CS { course[1].number }</h2>
-                                    <p className="card-text">{ course[1].title }</p>
-                                    <p className="card-text">{ course[1].meets }</p>
+                                    <h2 className="class-title">{ course.term } CS { course.number }</h2>
+                                    <p className="card-text">{ course.title }</p>
+                                    <p className="card-text">{ course.meets }</p>
                                 </div>
                             </div>
                         </div>

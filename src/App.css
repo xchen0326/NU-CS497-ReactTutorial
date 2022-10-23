@@ -6,6 +6,11 @@ h1 {
   background-color: cornflowerblue;
 }
 
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 17rem));
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */

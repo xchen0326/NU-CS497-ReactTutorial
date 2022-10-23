@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-import { getDatabase, onValue, ref, update} from 'firebase/database';
-const database = getDatabase(firebase);
-import { useCallback, useEffect, useState } from 'react';
+import { getDatabase, onValue, ref, set } from 'firebase/database';
+import { useEffect, useState } from "react";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDjPhc3K5JrUQOIx4xsGHfX6q0fBLN_OW0",
@@ -17,6 +16,37 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const database = getDatabase();
+
+export const useData = (path, transform) => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const dbRef = ref(database, path);
+    const devMode = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+    if (devMode) { console.log(`loading ${path}`); }
+    return onValue(dbRef, (snapshot) => {
+      const val = snapshot.val();
+      if (devMode) { console.log(val); }
+      setData(transform ? transform(val) : val);
+      setLoading(false);
+      setError(null);
+    }, (error) => {
+      setData(null);
+      setLoading(false);
+      setError(error);
+    });
+  }, [path, transform]);
+
+  return [data, loading, error];
+};
+
+export const updateData = (path, value) => {
+  set(ref(database, path), value);
+}
+
 export  const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();
@@ -40,36 +70,4 @@ export const signOutWithGoogle = () => {
             window.location.reload(false);
         })
 }
-
-export const useDbData = (path) => {
-    const [data, setData] = useState();
-    const [error, setError] = useState(null);
-  
-    useEffect(() => (
-      onValue(ref(database, path), (snapshot) => {
-       setData( snapshot.val() );
-      }, (error) => {
-        setError(error);
-      })
-    ), [ path ]);
-  
-    return [ data, error ];
-  };
-  
-  const makeResult = (error) => {
-    const timestamp = Date.now();
-    const message = error?.message || `Updated: ${new Date(timestamp).toLocaleString()}`;
-    return { timestamp, error, message };
-  };
-  
-  export const useDbUpdate = (path) => {
-    const [result, setResult] = useState();
-    const updateData = useCallback((value) => {
-      update(ref(database, path), value)
-      .then(() => setResult(makeResult()))
-      .catch((error) => setResult(makeResult(error)))
-    }, [database, path]);
-  
-    return [updateData, result];
-  };
   

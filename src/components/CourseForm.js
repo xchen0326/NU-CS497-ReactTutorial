@@ -1,19 +1,29 @@
-import { useState } from 'react';
-import {Button, Form} from 'react-bootstrap'
+import { useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap'
+import { updateData } from '../database/firebase';
 
-const CourseForm = () => {
+const CourseForm = ({
+    isOpen,
+    setIsOpen,
+    course,
+}) => {
     const [titleState, setTitleState] = useState('');
     const [meetingTitle, setMeetingTitle] = useState('');
     const [meetingTime, setMeetingTime] = useState('');
     var modal = document.getElementById("course-modal");
-    const openFormModal = () => {
-        modal.style.display = "block";
-    }
+
+    useEffect(() => {
+        if (isOpen) {
+            modal.style.display = "block";
+        }
+    }, [isOpen])
     const submitForm = (e) => {
         e.preventDefault();
         if (meetingTitle.length < 2) {
             setTitleState("The course title should have a length larger than 2.");
         } else {
+            let courseId = course.term[0] + course.number;
+            updateData(`/courses/${courseId}/meets`, "hello");
             setTitleState("");
         }
     }
@@ -22,6 +32,7 @@ const CourseForm = () => {
         setTitleState("");
         document.getElementById("meetingTitle").value = '';
         modal.style.display = "none";
+        setIsOpen(false);
     }
 
     return (
@@ -34,7 +45,7 @@ const CourseForm = () => {
                             <Form.Label>Course Title</Form.Label>
                             <Form.Control id='meetingTitle' type="input" placeholder="Enter course title" onChange={
                                 (e) => setMeetingTitle(e.target.value)
-                            }/>
+                            } />
                             <span style={{color: "red"}}>{titleState}</span>
                         </Form.Group>
 
@@ -53,10 +64,8 @@ const CourseForm = () => {
                     </Form>
                 </div>
             </div>
-            <Button id="myBtn" onClick={openFormModal}>Open Modal</Button>
         </div>
     )
-    // <button id="myBtn">Open Modal</button>
 }
 
 export default CourseForm;
