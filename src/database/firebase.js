@@ -53,13 +53,14 @@ const provider = new GoogleAuthProvider();
 export const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
         .then((result) => {
-            localStorage.setItem("userName", result.user.displayName);
+          localStorage.setItem("userId", result.user.uid);
+          localStorage.setItem("userName", result.user.displayName);
         })
         .then(() => {
-            window.location.reload(false);
+          window.location.reload(false);
         })
         .catch((err) => {
-            console.log(err); 
+          console.log(err); 
         })
 };
 

@@ -2,6 +2,10 @@ h1 {
   text-align: center;
 }
 
+.container {
+  height: 95vh;
+}
+
 .selected {
   background-color: cornflowerblue;
 }

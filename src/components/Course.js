@@ -1,5 +1,5 @@
 import { courseConflict } from "./util";
-import CourseForm from "./CourseForm";
+import { Button } from "react-bootstrap";
 
 const Course = ({
     course,
@@ -26,22 +26,27 @@ const Course = ({
         }
     }
 
-    const clickFunction = (e) => {
-        if (e.detail === 1) toggleSelect();
-        if (e.detail === 2) {
-            setIsOpen(true);
-            setCourse(course);
+    const clickSelect = () => {
+        toggleSelect();
+    }
+
+    const clickEdit = () => {
+        if (localStorage.getItem("userId") !== "s31sPmB2OUQnm92y3jhFJloeNIF2") {
+            return;
         }
+        setIsOpen(true);
+        setCourse(course);
     }
 
     return (
             <>
-                <div className="card m-1 p-2" style={style} onClick={(e) => isDisabled ? null : clickFunction(e)}>
+                <div className="card m-1 p-2" style={style} onClick={() => isDisabled ? null : clickSelect}>
                     <div className="card-body h-100">
                         <h2 className="class-title">{ course.term } CS { course.number }</h2>
                         <p className="card-text">{ course.title }</p>
                         <p className="card-text">{ course.meets }</p>
                     </div>
+                    {localStorage.getItem("userId") === "s31sPmB2OUQnm92y3jhFJloeNIF2" ? <Button onClick={clickEdit}> Edit Course</Button> : ""}
                 </div>
             </>
 

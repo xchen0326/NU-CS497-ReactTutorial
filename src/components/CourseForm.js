@@ -23,8 +23,9 @@ const CourseForm = ({
             setTitleState("The course title should have a length larger than 2.");
         } else {
             let courseId = course.term[0] + course.number;
-            updateData(`/courses/${courseId}/meets`, "hello");
+            updateData(`/courses/${courseId}/title`, meetingTitle);
             setTitleState("");
+            modal.style.display = "none";
         }
     }
     const closeForm = () => {

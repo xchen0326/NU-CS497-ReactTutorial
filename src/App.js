@@ -50,7 +50,7 @@ function App() {
           </div>} />
           <Route path="/authenticate" element={<LoginLogout setAuth={setAuth} />} />
       </Routes>
-      {/* <BottomMenu /> */}
+      <BottomMenu />
     </BrowserRouter>
   );
 }
