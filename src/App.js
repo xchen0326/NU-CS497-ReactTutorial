@@ -15,6 +15,7 @@ function App() {
   const [auth, setAuth] = useState("");
   const [term, setTerm] = useState("Fall");
   const [selected, setSelected] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
   useEffect(() => {
     const fetchSchedule = async () => {
       const response = await fetch(url);
@@ -44,9 +45,9 @@ function App() {
         <Route path="/" element={
           <div className="container">
             <Banner title={schedule.title} />
-            <CourseList courses={schedule.courses} term={term} selected={selected} setSelected={setSelected} auth={auth} />
             <CourseModal selected={selected} />
-            <CourseForm />
+            <CourseList courses={schedule.courses} term={term} selected={selected} setSelected={setSelected} isOpen={isOpen} setIsOpen={setIsOpen} auth={auth} />
+            <CourseForm setIsOpen={setIsOpen} />
           </div>} />
           <Route path="/authenticate" element={<LoginLogout setAuth={setAuth} />} />
       </Routes>

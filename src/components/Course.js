@@ -18,16 +18,13 @@ const Course = ({
         backgroundColor: isDisabled? 'lightgrey' : isSelected ? 'lightblue' : 'white'
     };
     const toggleSelect = () => {
+        console.log("selected")
         if (selected.includes(course)) {
             setSelected(selected.filter(item => item !== course));
         }
         else {
             setSelected(courses => [...courses, course]);
         }
-    }
-
-    const clickSelect = () => {
-        toggleSelect();
     }
 
     const clickEdit = () => {
@@ -40,7 +37,7 @@ const Course = ({
 
     return (
             <>
-                <div className="card m-1 p-2" style={style} onClick={() => isDisabled ? null : clickSelect}>
+                <div className="card m-1 p-2" style={style} onClick={() => isDisabled ? null : toggleSelect()}>
                     <div className="card-body h-100">
                         <h2 className="class-title">{ course.term } CS { course.number }</h2>
                         <p className="card-text">{ course.title }</p>

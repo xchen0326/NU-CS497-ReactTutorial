@@ -22,10 +22,17 @@ const CourseForm = ({
         if (meetingTitle.length < 2) {
             setTitleState("The course title should have a length larger than 2.");
         } else {
+            if (meetingTime === "") {}
+            else if (!/^(\w)+\s\d{1,2}:\d{1,2}-\d{1,2}:\d{1,2}$/.test(meetingTime)) {
+                setTitleState("The course meeting time is illegal.");
+                return;
+            }
             let courseId = course.term[0] + course.number;
             updateData(`/courses/${courseId}/title`, meetingTitle);
+            updateData(`/courses/${courseId}/meets`, meetingTime);
             setTitleState("");
             modal.style.display = "none";
+            setIsOpen(false)
         }
     }
     const closeForm = () => {
@@ -47,7 +54,6 @@ const CourseForm = ({
                             <Form.Control id='meetingTitle' type="input" placeholder="Enter course title" onChange={
                                 (e) => setMeetingTitle(e.target.value)
                             } />
-                            <span style={{color: "red"}}>{titleState}</span>
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -55,6 +61,7 @@ const CourseForm = ({
                             <Form.Control type="input" placeholder="Enter Course Meeting Time" onChange={
                                 (e) => setMeetingTime(e.target.value)
                             } />
+                            <span style={{color: "red"}}>{titleState}</span>
                         </Form.Group>
                         <Button variant="primary" onClick={closeForm}>
                             Cancel

@@ -7,10 +7,11 @@ const CourseList = ({
     courses,
     selected,
     setSelected,
+    isOpen,
+    setIsOpen,
     auth,
 }) => {
     const [term, setTerm] = useState('Fall');
-    const [isOpen, setIsOpen] = useState(false);
     const [course, setCourse] = useState();
     const termCourses = Object.values(courses).filter(course => term === course.term);
     return (

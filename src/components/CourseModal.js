@@ -2,7 +2,9 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-const CourseModal = ({selected}) => {
+const CourseModal = ({
+    selected,
+}) => {
     const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true);
@@ -13,8 +15,8 @@ const CourseModal = ({selected}) => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
-                Launch demo modal
+            <Button variant="success" onClick={handleShow}>
+                View Selected Courses
             </Button>
             <Modal show={show} onHide={handleClose} size="xl">
                 <Modal.Header closeButton>
