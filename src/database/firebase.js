@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
-import { getDatabase, onValue, ref, set } from 'firebase/database';
+import { connectAuthEmulator, getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth"
+import { getDatabase, onValue, ref, set, connectDatabaseEmulator } from 'firebase/database';
 import { useEffect, useState } from "react";
 
 const firebaseConfig = {
@@ -72,3 +72,13 @@ export const signOutWithGoogle = () => {
         })
 }
   
+if (!windows.EMULATION && import.meta.env.REACT_APP_EMULATE) {
+  connectAuthEmulator(auth, "http://127.0.0.1:9099");
+  connectDatabaseEmulator(database, "127.0.0.1", 9000);
+
+  signInWithCredential(auth, GoogleAuthProvider.credential(
+    '{"sub": "qEvli4msW0eDz5mSVO6j3W7i8w1k", "email": "tester@gmail.com", "displayName":"Test User", "email_verified": true}'
+  ));
+  
+  windows.EMULATION = true;
+}

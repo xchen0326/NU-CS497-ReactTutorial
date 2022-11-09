@@ -1,0 +1,67 @@
+[debug] [2022-11-09T23:27:37.204Z] ----------------------------------------------------------------------
+[debug] [2022-11-09T23:27:37.205Z] Command:       /Users/xiaoweichen/.nvm/versions/node/v18.9.1/bin/node /Users/xiaoweichen/.nvm/versions/node/v18.9.1/bin/firebase emulators:start --only database,auth
+[debug] [2022-11-09T23:27:37.205Z] CLI Version:   11.13.0
+[debug] [2022-11-09T23:27:37.205Z] Platform:      darwin
+[debug] [2022-11-09T23:27:37.205Z] Node Version:  v18.9.1
+[debug] [2022-11-09T23:27:37.206Z] Time:          Wed Nov 09 2022 17:27:37 GMT-0600 (Central Standard Time)
+[debug] [2022-11-09T23:27:37.206Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-09T23:27:37.255Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-09T23:27:37.255Z] > authorizing via signed-in user (xiaoweichen0326@gmail.com)
+[debug] [2022-11-09T23:27:37.361Z] openjdk version "11.0.17" 2022-10-18
+
+[debug] [2022-11-09T23:27:37.362Z] OpenJDK Runtime Environment Temurin-11.0.17+8 (build 11.0.17+8)
+OpenJDK 64-Bit Server VM Temurin-11.0.17+8 (build 11.0.17+8, mixed mode)
+
+[debug] [2022-11-09T23:27:37.368Z] Parsed Java major version: 11
+[info] i  emulators: Starting emulators: auth, database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, database"}}
+[debug] [2022-11-09T23:27:37.374Z] [hub] writing locator at /var/folders/9l/wcx__fq93hj39bjt7_4snffw0000gn/T/hub-react-tutorial-74f38.json
+[debug] [2022-11-09T23:27:37.378Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/react-tutorial-74f38 [none]
+[debug] [2022-11-09T23:27:38.608Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/react-tutorial-74f38 200
+[debug] [2022-11-09T23:27:38.608Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/react-tutorial-74f38 {"projectId":"react-tutorial-74f38","projectNumber":"1090028282744","displayName":"React-Tutorial","name":"projects/react-tutorial-74f38","resources":{"hostingSite":"react-tutorial-74f38","realtimeDatabaseInstance":"react-tutorial-74f38-default-rtdb"},"state":"ACTIVE","etag":"1_d16b16f5-6afe-464f-a16b-54d7124ccbaa"}
+[debug] [2022-11-09T23:27:38.608Z] database rules config:  []
+[warn] ⚠  database: Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration. {"metadata":{"emulator":{"name":"database"},"message":"Did not find a Realtime Database rules file specified in a firebase.json config file. The emulator will default to allowing all reads and writes. Learn more about this option: https://firebase.google.com/docs/emulator-suite/install_and_configure#security_rules_configuration."}}
+[debug] [2022-11-09T23:27:38.611Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2022-11-09T23:27:38.611Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-09T23:27:38.611Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2022-11-09T23:27:38.611Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/xiaoweichen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar","--host","127.0.0.1","--port",9000],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/xiaoweichen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2022-11-09T23:27:39.412Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/xiaoweichen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/xiaoweichen/.cache/firebase/emulators/firebase-database-emulator-v4.9.0.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\nWARNING: All illegal access operations will be denied in a future release"}}
+[debug] [2022-11-09T23:27:39.413Z] 
+ {"metadata":{"emulator":{"name":"database"},"message":"\n"}}
+[debug] [2022-11-09T23:27:40.241Z] 17:27:40.240 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"17:27:40.240 [NamespaceSystem-akka.actor.default-dispatcher-4] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2022-11-09T23:27:40.424Z] 17:27:40.424 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"17:27:40.424 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
+[info] i  ui: downloading ui-v1.9.0.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.9.0.zip..."}}
+[debug] [2022-11-09T23:27:43.349Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip 
+[debug] [2022-11-09T23:27:43.442Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip 200
+[debug] [2022-11-09T23:27:43.442Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.9.0.zip [stream]
+[debug] [2022-11-09T23:27:43.697Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2022-11-09T23:27:43.697Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2022-11-09T23:27:43.697Z] Starting Emulator UI with command {"binary":"node","args":["/Users/xiaoweichen/.cache/firebase/emulators/ui-v1.9.0/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/xiaoweichen/.cache/firebase/emulators/ui-v1.9.0/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2022-11-09T23:27:43.757Z] Web / API server started at localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI            │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Authentication │ 127.0.0.1:9099 │ http://localhost:4000/auth     │
+├────────────────┼────────────────┼────────────────────────────────┤
+│ Database       │ 127.0.0.1:9000 │ http://localhost:4000/database │
+└────────────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
