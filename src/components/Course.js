@@ -37,7 +37,7 @@ const Course = ({
 
     return (
             <>
-                <div className="card m-1 p-2" style={style} onClick={() => isDisabled ? null : toggleSelect()}>
+                <div className="card m-1 p-2" style={style} onClick={() => isDisabled ? null : toggleSelect()} data-cy={course.term}>
                     <div className="card-body h-100">
                         <h2 className="class-title">{ course.term } CS { course.number }</h2>
                         <p className="card-text">{ course.title }</p>

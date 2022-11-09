@@ -18,15 +18,16 @@ const CourseList = ({
         <>
             <TermSelector term={term} setTerm={setTerm} />
             <div className="course-list">
-            {auth!=='' ? termCourses.map((course, idx) => <Course key={idx}
+            {/* {auth!=='' ?  */}
+            { termCourses.map((course, idx) => <Course key={idx}
                 course={course}
                 selected={selected}
                 setSelected={setSelected}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                setCourse={setCourse} />)
-                : "Please login before accessing courses."
-            }
+                setCourse={setCourse} />)}
+                {/* : "Please login before accessing courses."
+            } */}
             </div>
             <CourseForm isOpen={isOpen} setIsOpen={setIsOpen} course={course} />
         </>
