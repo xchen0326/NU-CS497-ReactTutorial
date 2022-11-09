@@ -16,15 +16,15 @@ function App() {
   const [term, setTerm] = useState("Fall");
   const [selected, setSelected] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  useEffect(() => {
-    const fetchSchedule = async () => {
-      const response = await fetch(url);
-      if (!response.ok) throw response;
-      const json = await response.json();
-      setSchedule(addScheduleTimes(json));
-    }
-    fetchSchedule();
-  }, []);
+  // useEffect(() => {
+  //   const fetchSchedule = async () => {
+  //     const response = await fetch(url);
+  //     if (!response.ok) throw response;
+  //     const json = await response.json();
+  //     setSchedule(addScheduleTimes(json));
+  //   }
+  //   fetchSchedule();
+  // }, []);
 
   useEffect(() => {
     if (localStorage.getItem("userName")) {
